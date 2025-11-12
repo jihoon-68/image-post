@@ -72,12 +72,12 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v2
         with:
           task-definition: ${{ steps.render-task-def.outputs.task-definition }}
-          service: image-post-app-svc
+          service: image-post-app-td-service-1z8rpi4e
           cluster: enchanted-eagle-h9s2z0
           wait-for-service-stability: true
 
       - name: Verify deployment status
         run: |
           echo "Verifying deployment..."
-          aws ecs describe-services --cluster enchanted-eagle-h9s2z0 --services image-post-app-svc
+          aws ecs describe-services --cluster enchanted-eagle-h9s2z0 --services image-post-app-td-service-1z8rpi4e
           echo "Deployment seems stable."
