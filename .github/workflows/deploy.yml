@@ -73,11 +73,11 @@ jobs:
         with:
           task-definition: ${{ steps.render-task-def.outputs.task-definition }}
           service: image-post-app-svc
-          cluster: MyServiceCluster
+          cluster: enchanted-eagle-h9s2z0
           wait-for-service-stability: true
 
       - name: Verify deployment status
         run: |
           echo "Verifying deployment..."
-          aws ecs describe-services --cluster MyServiceCluster --services image-post-app-svc
+          aws ecs describe-services --cluster enchanted-eagle-h9s2z0 --services image-post-app-svc
           echo "Deployment seems stable."
